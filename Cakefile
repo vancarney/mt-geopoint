@@ -2,11 +2,13 @@
 # 
 # It comes baked in with 5 tasks:
 #
-# * build - compiles your src directory to your lib directory
-# * watch - watches any changes in your src directory and automatically compiles to the lib directory
-# * test  - runs mocha test framework, you can edit this task to use your favorite test framework
-# * docs  - generates annotated documentation using docco
-# * clean - clean generated .js files
+# * build   - compiles your src directory to your lib directory
+# * watch   - watches any changes in your src directory and automatically compiles to the lib directory
+# * test    - runs mocha test framework, you can edit this task to use your favorite test framework
+# * docs    - generates annotated documentation using docco
+# * readme  - generates README.html from README.md
+# * minify  - minify generated js sources in build directory
+# * clean   - clean generated .js files
 files =
   coffee: [
     'build/js'
@@ -90,7 +92,7 @@ task 'minify', 'minify js files in build/js dir', -> minify -> log ":)", green
 # ```
 # cake readme
 # ```
-task 'readme', 'generate readme.html in root project dir', -> readme -> log ":)", green
+task 'readme', 'generate README.html in root project dir', -> readme -> log ":)", green
 
 
 # ## *test*
