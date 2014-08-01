@@ -2,7 +2,7 @@
   "author": "Van Carney <carney.van@gmail.com>",
   "name": "mt-geopoint",
   "description": "Coffeescript port for Node & Bower of Chris Veness' Haversine Formulas from Moveable Type",
-  "keywords": ["latlon","geopoint"m"haversine","great circle","geo","geolocation","latitude","longitude","coordinates","bearing","rhum","distance","centroid"],
+  "keywords": ["latlon","geopoint","haversine","great circle","geo","geolocation","latitude","longitude","coordinates","bearing","rhum","distance","centroid"],
   "version": "0.1.1-alpha",
   "main":"./index.js",
   "licenses": [
