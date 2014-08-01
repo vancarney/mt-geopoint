@@ -1,0 +1,30 @@
+{
+  "author": "Van Carney <carney.van@gmail.com>",
+  "name": "mt-geopoint",
+  "description": "Coffeescript port for Node & Bower of Chris Veness' Haversine Formulas from Moveable Type",
+  "keywords": ["latlon","geopoint"m"haversine","great circle","geo","geolocation","latitude","longitude","coordinates","bearing","rhum","distance","centroid"],
+  "version": "0.1.1-alpha",
+  "main":"./index.js",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/MIT"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "github.com/vancarney/mt-geopoint.git"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "coffee-script": ">=1.7.1",
+    "mocha": ">=1.12.0",
+    "chai": ">=1.7.2",
+    "docco": ">=0.6.2",
+  },
+  "homepage": "https://github.com/vancarney/mt-geopoint",
+  "scripts": {
+    "test": "cake test"
+  }
+}
