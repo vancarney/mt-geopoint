@@ -19,13 +19,13 @@ check_root_privileges
 
 IFS=';'
 # setup npms array
-declare -a npms=("coffee-script;-g" "coffeelint;-g" "mocha;-g" "uglify-js;-g" "jquery;" "backbone;" "jsdom;")
+declare -a npms=("coffee-script;-g" "coffeelint;-g" "mocha;-g")
 # setup gems array
-declare -a gems=(compass sass markdown)
+declare -a gems=(markdown)
 
 get_npm()
 {
-	if [ `npm ls | grep -c -e "$1"` > 0 ]
+	if [ `npm ls | grep -c -e "$1"` != 0 ];
 	then
 		echo "\n\n> UPDATING NPM: $1"
 		npm update $1
@@ -34,6 +34,7 @@ get_npm()
 		npm install $2 $1
 	fi	
 }
+
 for npm in "${npms[@]}"
 do
 	read -ra cmd <<< "$npm"
@@ -42,7 +43,7 @@ done
 
 get_gem()
 {
-	if [ `gem list | grep -e "$1"` > 0 ]
+	if [ `gem list | grep -e "$1"` != 0 ];
 	then
 		echo "\n\n> UPDATING GEM: $1"
 		gem update $1
@@ -51,6 +52,7 @@ get_gem()
 		gem install $1
 	fi	
 }
+
 for gem in "${gems[@]}"
 do
 	get_gem "$gem"

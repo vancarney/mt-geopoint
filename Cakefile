@@ -11,12 +11,8 @@
 # * clean   - clean generated .js files
 files =
   coffee: [
-    'build/js'
-    'src/coffee'
-  ],
-  scss: [
-    'build/css/'
-    'src/scss/'
+    'bin'
+    'src'
   ]
 
 
@@ -72,16 +68,6 @@ task 'build', 'compile source', -> build -> log ":)", green
 # ```
 task 'watch', 'watch src folders and compile on file change', -> build true, -> log ":-)", green
 
-# ## *minify*
-#
-# Minfies Compiled JS
-#
-# <small>Usage</small>
-#
-# ```
-# cake minify
-# ```
-task 'minify', 'minify js files in build/js dir', -> minify -> log ":)", green
 
 # ## *readme*
 #
@@ -189,18 +175,8 @@ build = (watch, callback) ->
   options = ['-c', '-b', '-l', '-o' ]
   options = options.concat files.coffee
   options.unshift '-w' if watch
-  sass_opts = [ 'compile', "--sass-dir=#{files.scss[1]}", "--css-dir=#{files.scss[0]}"]
-  if watch
-    sass_opts.shift()
-    sass_opts.unshift 'watch'
-  launch 'compass', sass_opts, callback
   launch 'coffee', options, callback
 
-minify = () ->
-  walk 'build/js', (err, results) ->
-    for file in results
-      continue if file.match /\.min\.js+$/
-      launch 'uglifyjs', ['--output', "#{file.replace /\.js+$/, '.min.js'}", file]
 
 # ## *unlinkIfCoffeeFile*
 #
