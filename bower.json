@@ -1,0 +1,16 @@
+{
+  "name": "mt-geopoint",
+  "version": "0.0.1",
+  "authors": [
+    "Van Carney <carney.van@gmail.com>"
+  ],
+  "main": "public/js/app.js",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+  },
+  "devDependencies": {
+
+  }
+
+}
