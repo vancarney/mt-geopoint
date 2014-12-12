@@ -453,9 +453,9 @@ GeoPoint.centroid = (poly) ->
   y = 0
   for coords in poly
     do (coords)=>
-      x = x + Number coords.lon
-      y = y + Number coords.lat
-  new GeoPoint x/poly.length, y/poly.length
+      x = x + Number coords._lon
+      y = y + Number coords._lat
+  new GeoPoint y/poly.length, x/poly.length
 # Trims whitespace from string (q.v. blog.stevenlevithan.com/archives/faster-trim-javascript) 
 if (typeof String.prototype.trim) == "undefined"
   String.prototype.trim = ()=>

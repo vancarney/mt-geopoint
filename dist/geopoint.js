@@ -421,15 +421,15 @@ GeoPoint.centroid = function(poly) {
   y = 0;
   _fn = (function(_this) {
     return function(coords) {
-      x = x + Number(coords.lon);
-      return y = y + Number(coords.lat);
+      x = x + Number(coords._lon);
+      return y = y + Number(coords._lat);
     };
   })(this);
   for (_i = 0, _len = poly.length; _i < _len; _i++) {
     coords = poly[_i];
     _fn(coords);
   }
-  return new GeoPoint(x / poly.length, y / poly.length);
+  return new GeoPoint(y / poly.length, x / poly.length);
 };
 
 if ((typeof String.prototype.trim) === "undefined") {
