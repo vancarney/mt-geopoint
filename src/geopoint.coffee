@@ -192,18 +192,7 @@ class GeoPoint
     lon3    = (lon3+3*Math.PI) % (2*Math.PI) - Math.PI;  # normalise to -180..+180º
     
     new GeoPoint lat3.toDeg(), lon3.toDeg()
-    
-  # Returns center Coordinates of given Polygon
-  centroid : (poly) ->
-    x = 0
-    y = 0
-    for coords in poly
-      do (coords)=>
-        x = x + Number coords.lon
-        y = y + Number coords.lat
-    new GeoPoint x/poly.length, y/poly.length
-    
-    
+
   # Returns the distance from this point to the supplied point, in km, travelling along a rhumb line
   #   see http://williams.best.vwh.net/avform.htm#Rhumb
   # @param   {GeoPoint} point: Latitude/longitude of destination point
@@ -458,7 +447,15 @@ if (typeof Number.prototype.toPrecisionFixed) == "undefined"
         n = "0#{n}"
       n = "0.#{n}"
     return sign + n
-
+# Returns center Coordinates of given Polygon
+GeoPoint.centroid = (poly) ->
+  x = 0
+  y = 0
+  for coords in poly
+    do (coords)=>
+      x = x + Number coords.lon
+      y = y + Number coords.lat
+  new GeoPoint x/poly.length, y/poly.length
 # Trims whitespace from string (q.v. blog.stevenlevithan.com/archives/faster-trim-javascript) 
 if (typeof String.prototype.trim) == "undefined"
   String.prototype.trim = ()=>

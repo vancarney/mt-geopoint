@@ -11,7 +11,7 @@
 # * clean   - clean generated .js files
 files =
   coffee: [
-    'bin'
+    'dist'
     'src'
   ]
 
@@ -172,7 +172,7 @@ build = (watch, callback) ->
   if typeof watch is 'function'
     callback = watch
     watch = false
-  options = ['-c', '-b', '-l', '-o' ]
+  options = ['-c', '-b', '-o' ]
   options = options.concat files.coffee
   options.unshift '-w' if watch
   launch 'coffee', options, callback
