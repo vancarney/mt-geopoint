@@ -42,7 +42,7 @@ class GeoPoint
             Math.sin(dLon/2) * Math.sin(dLon/2)
     c = 2 * Math.atan2 Math.sqrt(a), Math.sqrt(1-a)
     d = R * c;
-    d.toPrecisionFixed precision
+    d.toPrecision precision
   
   
   # Returns the (initial) bearing from this point to the supplied point, in degrees
